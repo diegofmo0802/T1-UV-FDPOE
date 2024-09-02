@@ -22,31 +22,37 @@ public class Main {
         People p2 = new People("5678");
         People p3 = new People("9011");
         People p4 = new People("1213");
+        People p5 = new People("1593");
 
-        p1.setFirstName("pedro");
-        p2.setFirstName("juan");
-        p3.setFirstName("maria");
-        p4.setFirstName("carlos");
+        p1.setFirstName("jennifer");
+        p2.setFirstName("marcos");
+        p3.setFirstName("giselle");
+        p4.setFirstName("ryan");
+        p5.setFirstName("Luis");
 
         p1.setLastName("test");
         p2.setLastName("test");
         p3.setLastName("test");
         p4.setLastName("test");
+        p5.setLastName("test");
 
-        p1.setGender("male");
+        p1.setGender("female");
         p2.setGender("male");
         p3.setGender("female");
         p4.setGender("male");
+        p5.setGender("male");
 
         p1.setAge(20);
         p2.setAge(21);
         p3.setAge(19);
         p4.setAge(16);
+        p5.setAge(28);
 
         peopleManager.peoples.add(p1);
         peopleManager.peoples.add(p2);
         peopleManager.peoples.add(p3);
         peopleManager.peoples.add(p4);
+        peopleManager.peoples.add(p5);
     }
 
     /**
