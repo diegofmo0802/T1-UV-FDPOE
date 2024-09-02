@@ -14,10 +14,16 @@ public class Main {
 
     public PeopleManager peopleManager = new PeopleManager();
 
+    public Main() {
+        if (Utilities.confirm("use debug items?")) {
+            Utilities.dialog("adding people to test");
+            addItemsToDebug();
+        }
+    }
     /**
      * Adds sample data to the PeopleManager for debugging purposes.
      */
-    public void addItemsToDenug() {
+    private void addItemsToDebug() {
         People p1 = new People("1234");
         People p2 = new People("5678");
         People p3 = new People("9011");
@@ -59,7 +65,6 @@ public class Main {
      * Displays the main menu and handles user interactions.
      */
     public void mainMenu() {
-        addItemsToDenug();
         boolean running = true;
         String[] options = {
             "entity managment",
