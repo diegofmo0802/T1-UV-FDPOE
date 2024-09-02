@@ -30,19 +30,25 @@ public class PeopleManager {
             peoples.remove(toDelete);    
         }
     }
+    public String[] getRegistredIds() {
+        ArrayList<String> list = new ArrayList();
+        for (People people : peoples) list.add(people.id);
+        return list.toArray(String[]::new);
+    }
     public void editPeople() {
-        String id = Utilities.askString("insert cc/id", false);
-        if (!existId(id)) {
-            Utilities.dialog("esta id no existe"); return;
-        }
+        String[] registrdIds = getRegistredIds();
+        String id = Utilities.selectWindow("edit menu", "select people to edit", registrdIds);
+        
         People people = getPeople(id);
         String[] options = {
             "first name",
             "last name",
             "age",
-            "gender"
+            "gender",
+            "add friend",
+            "del friend"
         };
-        String selected = Utilities.selectWindow("edit", "property to edit", options);
+        String selected = Utilities.selectWindow("edit menu", "property to edit", options);
         switch (selected) {
             case "first name" -> {
                 String firstName = askFirstName();
@@ -57,11 +63,14 @@ public class PeopleManager {
                 people.setAge(age);
             }
             case "gender" -> {
-                int age = askAge();
-                people.setAge(age);
+                String gender = asktGender();
+                people.setGender(gender);
             }
+            case "add friend" -> { addFriend(people); }
+            case "del friend" -> { delFriend(people); }
             default -> { Utilities.dialog("invalid property"); }
         }
+        Utilities.logConcat(" ", people.id, "edited:", people.toString());
     }
     public String asktGender() {
         String[] genders = {
@@ -89,5 +98,42 @@ public class PeopleManager {
             if (people.getId().equals(id)) return people;
         }
         return null;
+    }
+    public void addFriend(People subject) {
+        ArrayList<String> list = new ArrayList();
+        Utilities.log(subject.toString());
+        for (People people : peoples) {
+            Utilities.log(people.toString());
+            if (people != subject && !subject.Friends.contains(people.id)) {
+                list.add(people.id);
+            }
+        }
+        String[] options = list.toArray(String[]::new);
+        if (options.length >= 1) {
+            String selected = Utilities.selectWindow("add friend", "select a people", options);
+            subject.addFriend(selected);
+        } else {
+            Utilities.dialog("no more peoples in system");
+        }
+    }
+    public void delFriend(People subject) {
+        ArrayList<String> list = new ArrayList();
+        for (String id : subject.Friends) {
+            list.add(id);
+        }
+        String[] options = list.toArray(String[]::new);
+        if (options.length >= 1) {
+            String selected = Utilities.selectWindow("del friend", "select a people", options);
+            subject.delFriend(selected);
+        } else {
+            Utilities.dialog("no more peoples in system");
+        }
+    }
+    public void listAll() {
+        Utilities.log("----------|List of registred peoples|----------");
+        for (People people : peoples) {
+            Utilities.logConcat(" ", "people:", people.toString());
+        }
+        Utilities.log("-----------------------------------------------");
     }
 }
