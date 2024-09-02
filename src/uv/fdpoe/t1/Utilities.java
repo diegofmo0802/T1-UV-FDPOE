@@ -65,7 +65,6 @@ public class Utilities {
      }
     public static boolean confirm(Component parentComponent, String message) {
         int result = JOptionPane.showConfirmDialog(parentComponent, message);
-        if (result == 0) return true;
-        return false;
+        return result == 0;
     }
 }
