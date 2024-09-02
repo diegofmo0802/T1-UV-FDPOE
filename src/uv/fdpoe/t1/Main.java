@@ -3,6 +3,7 @@ Purpose: Provides the main menus and user interface for the application.
 Authors: 
   - Diego Fernando Moreno - 202363205
   - Oscar David Cadavid Ramirez - 202363243
+  - Veruzka Guapacha Quiroz - 202378085
 Date: 01-09-2024
 Version: 1.1
 */

@@ -3,6 +3,7 @@ Purpose: Represents data for a person entity.
 Authors:
     - Diego Fernando Moreno - 202363205
     - Oscar David Cadavid Ramirez - 202363243
+    - Veruzka Guapacha Quiroz - 202378085
 Date: 1-09-2024
 */
 package uv.fdpoe.t1;
