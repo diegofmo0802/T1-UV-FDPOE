@@ -1,8 +1,9 @@
 /*
-proposito proporciona los menus al usuario
-author: Diego Fernando Moreno - 202363205
-author: Oscar David Cadavid Ramirez - 202363243
-fecha: 1-09-2024
+Proposito: proporciona los menus al usuario
+Autor: Diego Fernando Moreno - 202363205
+Autor: Oscar David Cadavid Ramirez - 202363243
+Fecha: 01-09-2024
+Version: 1.1
 */
 package uv.fdpoe.t1;
 
