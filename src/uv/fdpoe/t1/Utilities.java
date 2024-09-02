@@ -19,6 +19,18 @@ public class Utilities {
             options[0]
         );
     }
+    public static int optionWindow(String title, String message, String[] options) {
+        return JOptionPane.showOptionDialog(
+            null,
+            message,
+            title,
+            JOptionPane.DEFAULT_OPTION,
+            JOptionPane.INFORMATION_MESSAGE,
+            null,
+            options,
+            options[0]
+        );
+    }
     public static void log(String message) { log(message, true); }
     public static void log(String message, boolean ln) {
         System.out.print(message);
