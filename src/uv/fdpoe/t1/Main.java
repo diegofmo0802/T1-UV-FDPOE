@@ -1,8 +1,35 @@
 package uv.fdpoe.t1;
 
 public class Main {
-    public PeopleManager peoples = new PeopleManager();
+    public PeopleManager peopleManager = new PeopleManager();
+    public void addItemsToDenug() {
+        People p1 = new People("1234");
+        People p2 = new People("5678");
+        People p3 = new People("9011");
+        People p4 = new People("1213");
+        p1.setFirstName("pedro");
+        p2.setFirstName("juan");
+        p3.setFirstName("maria");
+        p4.setFirstName("carlos");
+        p1.setLastName("test");
+        p2.setLastName("test");
+        p3.setLastName("test");
+        p4.setLastName("test");
+        p1.setGender("male");
+        p2.setGender("male");
+        p3.setGender("female");
+        p4.setGender("male");
+        p1.setAge(20);
+        p2.setAge(21);
+        p3.setAge(19);
+        p4.setAge(16);
+        peopleManager.peoples.add(p1);
+        peopleManager.peoples.add(p2);
+        peopleManager.peoples.add(p3);
+        peopleManager.peoples.add(p4);
+    }
     public void mainMenu() {
+        addItemsToDenug();
         boolean running = true;
         String[] options = {
             "entity managment",
@@ -33,9 +60,9 @@ public class Main {
         };
         String selected = Utilities.selectWindow("entity menu", "select an option", options);
         switch(selected) {
-            case "add" -> { peoples.addPeople(); }
-            case "delete" -> { peoples.delPeople(); }
-            case "modify" -> { peoples.editPeople(); }
+            case "add" -> { peopleManager.addPeople(); }
+            case "delete" -> { peopleManager.delPeople(); }
+            case "modify" -> { peopleManager.editPeople(); }
             default -> { Utilities.dialog("invalid option: " + selected); }
 
         }
