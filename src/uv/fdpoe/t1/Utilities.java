@@ -1,6 +1,5 @@
 package uv.fdpoe.t1;
 
-
 import java.awt.Component;
 import javax.swing.JOptionPane;
 
@@ -35,5 +34,38 @@ public class Utilities {
         String result = "";
         for (String part : items) result += part + join;
         return result;
+    }
+    public static String askString(String prompt, boolean nulable) {
+        boolean ask = true;
+        String result = null;
+        while(ask) {
+            result = JOptionPane.showInputDialog(prompt);
+            if (!nulable && result == null) continue;
+            ask = false;
+        }
+        return result;
+    }
+    public static int askInt(String prompt) {
+        boolean ask = true;
+        int result = -1;
+        while(ask) {
+            String response = JOptionPane.showInputDialog(prompt);
+            if (response == null) continue;
+            try {
+                result = Integer.parseInt(response);
+                ask = false;
+            } catch(NumberFormatException error) {
+                dialog("that is not a number:" + response);
+            }
+        }
+        return result;
+    }
+     public static boolean confirm(String message) {
+         return confirm(null, message);
+     }
+    public static boolean confirm(Component parentComponent, String message) {
+        int result = JOptionPane.showConfirmDialog(parentComponent, message);
+        if (result == 0) return true;
+        return false;
     }
 }
