@@ -136,4 +136,38 @@ public class PeopleManager {
         }
         Utilities.log("-----------------------------------------------");
     }
+    public void listByAge(String option, int reference) {
+        ArrayList<People> toShow = new ArrayList();
+        for (People people : peoples) {
+            switch(option) {
+                case ">" -> { if (people.age > reference) toShow.add(people); }
+                case ">=" -> { if (people.age >= reference) toShow.add(people); }
+                case "<" -> { if (people.age < reference) toShow.add(people); }
+                case "<=" -> { if (people.age <= reference) toShow.add(people); }
+                default -> { Utilities.dialog("not supported option to age list"); }
+            }
+        }
+        Utilities.log("----------|List of  peoples with age " + option + " " + reference + "|----------");
+        for (People people : toShow) {
+            Utilities.logConcat(" ", "people:", people.toString());
+        }
+        Utilities.log("-----------------------------------------------");
+    }
+        public void listByFriendCount(String option, int reference) {
+        ArrayList<People> toShow = new ArrayList();
+        for (People people : peoples) {
+            switch(option) {
+                case ">" -> { if (people.Friends.size() > reference) toShow.add(people); }
+                case ">=" -> { if (people.Friends.size() >= reference) toShow.add(people); }
+                case "<" -> { if (people.Friends.size() < reference) toShow.add(people); }
+                case "<=" -> { if (people.Friends.size() <= reference) toShow.add(people); }
+                default -> { Utilities.dialog("not supported option to age list"); }
+            }
+        }
+        Utilities.log("----------|List of  peoples with age " + option + " " + reference + "|----------");
+        for (People people : toShow) {
+            Utilities.logConcat(" ", "people:", people.toString());
+        }
+        Utilities.log("-----------------------------------------------");
+    }
 }

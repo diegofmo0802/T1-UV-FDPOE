@@ -42,9 +42,7 @@ public class Main {
             String selected = Utilities.selectWindow("Main menu", "select an option", options);
             Utilities.logConcat("option selected:", selected);
             switch (selected) {
-                case  "entity managment" -> {
-                    entityMenu();
-                }
+                case "entity managment" -> { entityMenu(); }
                 case "list menu" -> { listMenu(); }
                 case "about us"  -> { aboutUs(); }
                 case "close app" -> { running = false; }
@@ -70,14 +68,23 @@ public class Main {
     public void listMenu() {
         String[] options = {
             "general list",
-            "query by id",
-            "query by age",
+            "query by age >= ?",
+            "query by age <= ?",
+            "friend count >= ?",
+            "friend count <= ?",
         };
-        String selected = Utilities.selectWindow("list menu", "select an option", options);
+        int selected = Utilities.optionWindow("list menu", "select an option", options);
+        Utilities.logConcat("list menu: selected option ->", ""+selected);
+        int reference = 0;
+        if (selected > 0) reference = Utilities.askInt("write a number");
         switch (selected) {
-                case "list menu" -> { listMenu(); }
-                default -> { Utilities.dialog("invalid option: " + selected); }
-            }
+            case  0 -> { peopleManager.listAll(); }
+            case  1 -> { peopleManager.listByAge(">=", reference); }
+            case  2 -> { peopleManager.listByAge("<=", reference); }
+            case  3 -> { peopleManager.listByFriendCount(">=", reference); }
+            case  4 -> { peopleManager.listByFriendCount("<=", reference); }
+            default -> { Utilities.dialog("invalid option: " + selected); }
+        }
     }
     public void aboutUs() {
         String message = Utilities.concat("\n",
