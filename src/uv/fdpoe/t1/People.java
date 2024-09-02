@@ -1,57 +1,141 @@
 /*
-proposito:Representar datos de una entidad persona 
-author: Diego Fernando Moreno - 202363205
-author: Oscar David Cadavid Ramirez - 202363243
-fecha: 1-09-2024
+Purpose: Represents data for a person entity.
+Authors:
+    - Diego Fernando Moreno - 202363205
+    - Oscar David Cadavid Ramirez - 202363243
+Date: 1-09-2024
 */
 package uv.fdpoe.t1;
 
 import java.util.ArrayList;
 
+/**
+ * The `People` class represents a person with attributes such as first name, last name,
+ * age, gender, ID, and a list of friends.
+ */
 public class People {
-    String firstName;
-    String lastName;
-    int age;
-    String gender;
-    String id;
-    ArrayList<String> Friends;
+    private String firstName;
+    private String lastName;
+    private int age;
+    private String gender;
+    private String id;
+    private ArrayList<String> Friends;
+
+    /**
+     * Constructor to initialize a `People` object with an ID.
+     * @param id The ID of the person.
+     */
     public People(String id) {
         this.id = id;
-        Friends = new ArrayList();
+        Friends = new ArrayList<>();
     }
-    public String getFirstName() { return firstName; }
-    public void setFirstName(String firstName) { this.firstName = firstName; }
-    public String getLastName() { return lastName; }
-    public void setLastName(String lastName) { this.lastName = lastName; }
-    public int getAge() { return age; }
-    public void setAge(int age) { this.age = age; }
-    public String getGender() { return gender; }
-    public void setGender(String gender) { this.gender = gender; }
-    public String getId() { return id; }
+
+    /**
+     * Gets the first name of the person.
+     * @return The first name.
+     */
+    public String getFirstName() {
+        return firstName;
+    }
+
+    /**
+     * Sets the first name of the person.
+     * @param firstName The first name to set.
+     */
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    /**
+     * Gets the last name of the person.
+     * @return The last name.
+     */
+    public String getLastName() {
+        return lastName;
+    }
+
+    /**
+     * Sets the last name of the person.
+     * @param lastName The last name to set.
+     */
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    /**
+     * Gets the age of the person.
+     * @return The age.
+     */
+    public int getAge() {
+        return age;
+    }
+
+    /**
+     * Sets the age of the person.
+     * @param age The age to set.
+     */
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    /**
+     * Gets the gender of the person.
+     * @return The gender.
+     */
+    public String getGender() {
+        return gender;
+    }
+
+    /**
+     * Sets the gender of the person.
+     * @param gender The gender to set.
+     */
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    /**
+     * Gets the ID of the person.
+     * @return The ID.
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * Adds a friend to the person's list of friends.
+     * @param id The ID of the friend to add.
+     */
     public void addFriend(String id) {
         Friends.add(id);
     }
+
+    /**
+     * Removes a friend from the person's list of friends.
+     * @param id The ID of the friend to remove.
+     */
     public void delFriend(String id) {
-        if (Friends.contains(id)) {
-            Friends.remove(id);
-        }
+        Friends.remove(id);
     }
 
+    /**
+     * Returns a string representation of the `People` object.
+     * @return A string representation of the person's data.
+     */
     @Override
     public String toString() {
-        String result = "{\n";
-        result += "  id: " + id + ",\n";
-        result += "  firstName: " + firstName + ",\n";
-        result += "  lastName: " + lastName + ",\n";
-        result += "  age: " + age + ",\n";
-        result += "  gender: " + gender + ",\n";
-        result += "  Friends: [\n";
+        StringBuilder result = new StringBuilder("{\n");
+        result.append("  id: ").append(id).append(",\n");
+        result.append("  firstName: ").append(firstName).append(",\n");
+        result.append("  lastName: ").append(lastName).append(",\n");
+        result.append("  age: ").append(age).append(",\n");
+        result.append("  gender: ").append(gender).append(",\n");
+        result.append("  Friends: [\n");
         for (String Friend : Friends) {
-            result += "    " + Friend + ",\n";
+            result.append("    ").append(Friend).append(",\n");
         }
-        result += "  ]";
-        result += "\n}";
-        
-        return result;
+        result.append("  ]\n");
+        result.append("}");
+        return result.toString();
     }
 }
