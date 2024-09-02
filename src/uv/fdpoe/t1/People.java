@@ -14,12 +14,12 @@ import java.util.ArrayList;
  * age, gender, ID, and a list of friends.
  */
 public class People {
-    private String firstName;
-    private String lastName;
-    private int age;
-    private String gender;
-    private String id;
-    private ArrayList<String> Friends;
+    public String firstName;
+    public String lastName;
+    public int age;
+    public String gender;
+    public String id;
+    public ArrayList<String> Friends;
 
     /**
      * Constructor to initialize a `People` object with an ID.

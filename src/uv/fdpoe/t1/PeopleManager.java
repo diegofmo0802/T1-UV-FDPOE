@@ -274,43 +274,42 @@ public class PeopleManager {
         }
         Utilities.log("-----------------------------------------------");
     }
-
     /**
-     * Calculates and displays the average number of friends for all people in the list.
+     * calculate the media of friends per people
+     * @return the media of friends per people
      */
-    public void avgFriendCount() {
-        if (peoples.isEmpty()) {
-            Utilities.dialog("no people to calculate");
-            return;
-        }
-        int totalFriends = 0;
+    public float getFriendsMedia() {
+        int sum = 0;
+        int total = peoples.size();
         for (People people : peoples) {
-            totalFriends += people.Friends.size();
+            sum += people.Friends.size();
         }
-        float average = (float) totalFriends / peoples.size();
-        Utilities.log("average number of friends in the system: " + average);
+        return sum / total;
     }
-
     /**
-     * Calculates and displays the average age of all people in the list.
+     * calculate the age media
+     * @return the age media
      */
-    public void avgAge() {
-        if (peoples.size() == 0) {
-            Utilities.dialog("no people to calculate");
-            return;
-        }
-        int totalAge = 0;
+    public float getAgeMedia() {
+        int sum = 0;
+        int total = peoples.size();
         for (People people : peoples) {
-            totalAge += people.age;
+            sum += people.age;
         }
-        float average = (float) totalAge / peoples.size();
-        Utilities.log("average age in the system: " + average);
+        return sum / total;
     }
-
     /**
-     * Displays the total number of people in the list.
+     * count a number of peoples with an gender
+     * @param gender the gender of pople "male", "female" or "other"
+     * @return the count
      */
-    public void countPeople() {
-        Utilities.log("total number of people: " + peoples.size());
+    public int getGenderCount(String gender) {
+        int result = 0;
+        for (People p : peoples) {
+            if (gender.equals(p.gender)) {
+                result ++;
+            }
+        }
+        return result;
     }
 }
