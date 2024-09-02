@@ -152,6 +152,8 @@ public class Main {
      */
     public void aboutUs() {
         String message = Utilities.concat("\n",
+            "Fundamentos de programacion orientada a eventos",
+            "Grupo 50",
             "Diego Fernando Moreno     - 202363205",
             "Veruzka Katriana Guapacha - 202378085",
             "Oscar David Cadavid       - 202363228"
