@@ -1,5 +1,6 @@
 /*
 Nombre: Diego Fernando Moreno - 202363205
+Nombre: Oscar David Cadavid Ramirez - 202363243
 */
 package uv.fdpoe.t1;
 
