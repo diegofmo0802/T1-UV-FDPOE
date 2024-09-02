@@ -33,6 +33,11 @@ public class PeopleManager {
         }
         People toDelete = getPeople(id);
         if (Utilities.confirm("deseas eliminar la persona con cc/id: " + id + "?")) {
+            for (People p : peoples) {
+                if (p.Friends.contains(toDelete.id)) {
+                    p.Friends.remove(toDelete.id);
+                }
+            }
             peoples.remove(toDelete);    
         }
     }
@@ -118,6 +123,8 @@ public class PeopleManager {
         if (options.length >= 1) {
             String selected = Utilities.selectWindow("add friend", "select a people", options);
             subject.addFriend(selected);
+            People other = getPeople(selected);
+            other.addFriend(subject.id);
         } else {
             Utilities.dialog("no more peoples in system");
         }
@@ -175,5 +182,30 @@ public class PeopleManager {
             Utilities.logConcat(" ", "people:", people.toString());
         }
         Utilities.log("-----------------------------------------------");
+    }
+    public float getFriendsMedia() {
+        int sum = 0;
+        int total = peoples.size();
+        for (People people : peoples) {
+            sum += people.Friends.size();
+        }
+        return sum / total;
+    }
+    public float getAgeMedia() {
+        int sum = 0;
+        int total = peoples.size();
+        for (People people : peoples) {
+            sum += people.age;
+        }
+        return sum / total;
+    }
+    public int getGenderCount(String gender) {
+        int result = 0;
+        for (People p : peoples) {
+            if (gender.equals(p.gender)) {
+                result ++;
+            }
+        }
+        return result;
     }
 }

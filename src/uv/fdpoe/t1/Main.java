@@ -50,6 +50,7 @@ public class Main {
             switch (selected) {
                 case "entity managment" -> { entityMenu(); }
                 case "list menu" -> { listMenu(); }
+                case "statistics" -> { analitycsMenu(); }
                 case "about us"  -> { aboutUs(); }
                 case "close app" -> { running = false; }
                 default -> { Utilities.dialog("invalid option: " + selected); }
@@ -69,6 +70,30 @@ public class Main {
             case "modify" -> { peopleManager.editPeople(); }
             default -> { Utilities.dialog("invalid option: " + selected); }
 
+        }
+    }
+    public void analitycsMenu() {
+         String[] options = {
+            "media de amigos",
+            "age media",
+            "gender count",
+        };
+        String selected = Utilities.selectWindow("entity menu", "select an option", options);
+        switch(selected) {
+            case "media de amigos" -> {
+                Utilities.dialog("media of Friends per people:" + peopleManager.getFriendsMedia());
+            }
+            case "age media" -> {
+                Utilities.dialog("media of Friends per people:" + peopleManager.getAgeMedia());
+            }
+            case "gender count" -> {
+                Utilities.dialog(Utilities.concat("\n", new String[] {
+                    "total girls: " + peopleManager.getGenderCount("female"),
+                    "total boys: " + peopleManager.getGenderCount("male"),
+                    "total others: " + peopleManager.getGenderCount("other"),
+                }));
+            }
+            default -> { Utilities.dialog("invalid option: " + selected); }
         }
     }
     public void listMenu() {
