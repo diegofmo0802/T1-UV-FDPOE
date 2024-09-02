@@ -1,3 +1,10 @@
+/*
+Proposito: Proporciona utilidades 
+Autor: Diego Fernando Moreno - 202363205
+Autor: Oscar David Cadavid Ramirez - 202363243
+Fecha: 01-09-2024
+Version: 2.0
+*/
 package uv.fdpoe.t1;
 
 import java.awt.Component;
