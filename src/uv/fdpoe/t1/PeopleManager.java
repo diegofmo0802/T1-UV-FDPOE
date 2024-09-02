@@ -44,20 +44,7 @@ public class PeopleManager {
      * If the person exists and removal is confirmed, the person is removed from the list
      * and the friends lists are updated.
      */
-    public void delPeople() {
-        String id = Utilities.askString("insert cc/id", false);
-        if (!existId(id)) {
-            Utilities.dialog("this ID does not exist");
-            return;
-        }
-        People toDelete = getPeople(id);
-        if (Utilities.confirm("do you want to delete the person with cc/id: " + id + "?")) {
-            for (People p : peoples) {
-                if (p.Friends.contains(toDelete.id)) {
-                    p.Friends.remove(toDelete.id);
-                }
-            }
-            peoples.remove(toDelete);
+
         }
     }
 
