@@ -120,6 +120,15 @@ public class People {
     }
 
     /**
+     * Checks if a given person (by ID) is a friend.
+     * @param id The ID of the person to check.
+     * @return True if the person is a friend, false otherwise.
+     */
+    public boolean isFriend(String id) {
+        return Friends.contains(id);
+    }
+
+    /**
      * Returns a string representation of the `People` object.
      * @return A string representation of the person's data.
      */
