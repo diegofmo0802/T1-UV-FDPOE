@@ -9,8 +9,8 @@ public class People {
     String gender;
     String id;
     ArrayList<String> Friends;
-    public People() {
-        
+    public People(String id) {
+        this.id = id;
     }
     public String getFirstName() { return firstName; }
     public void setFirstName(String firstName) { this.firstName = firstName; }
@@ -21,7 +21,6 @@ public class People {
     public String getGender() { return gender; }
     public void setGender(String gender) { this.gender = gender; }
     public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
     public void addFriend(String id) {
         Friends.add(id);
     }
