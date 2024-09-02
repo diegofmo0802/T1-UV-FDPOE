@@ -1,6 +1,8 @@
 /*
-Nombre: Diego Fernando Moreno - 202363205
-Nombre: Oscar David Cadavid Ramirez - 202363243
+proposito proporciona los menus al usuario
+author: Diego Fernando Moreno - 202363205
+author: Oscar David Cadavid Ramirez - 202363243
+fecha: 1-09-2024
 */
 package uv.fdpoe.t1;
 
