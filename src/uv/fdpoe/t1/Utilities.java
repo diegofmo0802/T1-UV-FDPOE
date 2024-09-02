@@ -26,11 +26,14 @@ public class Utilities {
         if (ln) System.out.print("\n");
     }
     public static void logConcat(String ...message) {
-        String result = "";
-        for (String part : message) result += part + " ";
-        log(result);
+        log(concat(" ", message));
     }
     public static void log(String[] messages) {
         for (String message : messages) log(message);
+    }
+    public static String concat(String join, String ...items) {
+        String result = "";
+        for (String part : items) result += part + join;
+        return result;
     }
 }
