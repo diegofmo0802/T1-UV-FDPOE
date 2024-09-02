@@ -11,6 +11,7 @@ public class People {
     ArrayList<String> Friends;
     public People(String id) {
         this.id = id;
+        Friends = new ArrayList();
     }
     public String getFirstName() { return firstName; }
     public void setFirstName(String firstName) { this.firstName = firstName; }
